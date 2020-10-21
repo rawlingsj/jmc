@@ -43,13 +43,25 @@ spec:
   {{- if .Values.env }}
             env:
               - name: JX_DB_INSTANCE_CONNECTION_NAME
-                value: {{ required "A valid .Values.dbInstanceConnectionName entry required!"  .Values.dbInstanceConnectionName }}
+                valueFrom:
+                  secretKeyRef:
+                    key: dbInstanceConnectionName
+                    name: {{ template "jx.fullname" . }}
               - name: JX_DB_DATABASE_NAME
-                value: {{ required "A valid .Values.dbDatabaseName entry required!"  .Values.dbDatabaseName }}
+                valueFrom:
+                  secretKeyRef:
+                    key: dbDatabaseName
+                    name: {{ template "jx.fullname" . }}
               - name: JX_DB_DATABASE_USER
-                value: {{ required "A valid .Values.dbDatabaseUser entry required!"  .Values.dbDatabaseUser }}
+                valueFrom:
+                  secretKeyRef:
+                    key: dbDatabaseUser
+                    name: {{ template "jx.fullname" . }}
               - name: JX_DB_DATABASE_PASSWORD
-                value: {{ required "A valid .Values.dbDatabasePassword entry required!"  .Values.dbDatabasePassword }}
+                valueFrom:
+                  secretKeyRef:
+                    key: dbDatabasePassword
+                    name: {{ template "jx.fullname" . }}
   {{- range $pkey, $pval := .Values.env }}
               - name: {{ $pkey }}
                 value: {{ $pval }}
