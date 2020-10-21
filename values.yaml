@@ -1,0 +1,57 @@
+dbInstanceConnectionName: ""
+dbDatabaseName: ""
+dbDatabaseUser: ""
+dbDatabasePassword: ""
+
+image:
+  repository: rawlingsj80/jmc
+  tag: 0.0.4
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+podAnnotations: {}
+
+serviceaccount:
+  enabled: true
+  customName: ""
+
+activeDeadlineSeconds: 300
+backoffLimit: 5
+
+# default is Always but for Jobs use Never or OnFailure
+restartPolicy: Never
+
+env:
+  # lets use JSON output in logs
+  JX_LOG_FORMAT: json
+
+  # lets set the logging level
+  JX_LOG_LEVEL: info
+
+internalPort: 80
+
+probe:
+  path: /healthz
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+#  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
