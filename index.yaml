@@ -3,12 +3,12 @@ entries:
   jmc:
   - apiVersion: v1
     appVersion: 0.0.1
-    created: "2020-10-21T08:58:13.212126838Z"
+    created: "2020-10-21T09:20:07.218460382Z"
     description: A Helm chart for collecting Jenkins X metrics
-    digest: 482379449c5ad495bec8cc3eac7490299ff1531d803846438e2efdc2314a4db4
+    digest: 1786f3da417d61ed41c9752f4e3ee841c6292988bd88363840e52e6495f7408e
     home: https://github.com/rawlingsj/jmc
     name: jmc
     urls:
     - jmc-0.0.1.tgz
     version: 0.0.1
-generated: "2020-10-21T08:58:13.211091224Z"
+generated: "2020-10-21T09:20:07.217383779Z"
